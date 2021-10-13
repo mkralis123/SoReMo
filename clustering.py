@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 
 
-df = pd.read_csv("Chicago_Public_Schools_-_School_Profile_Information_SY1819.csv", sep = ",")
+df = pd.read_csv("SY2016_2017.csv", sep = ",")
 
 lst = ['School_ID', 
 'Legacy_Unit_ID', 
@@ -11,7 +11,7 @@ lst = ['School_ID',
 'Summary', 
 'Administrator_Title', 
 'Administrator', 
-'Secondary_Contact_Title', 
+'Secondary_Contact_Title',  
 'Secondary_Contact', 
 'City', 
 'State', 
@@ -69,9 +69,12 @@ lst = ['School_ID',
 'Is_GoCPS_Elementary', 
 'Is_GoCPS_High_School', 
 'Open_For_Enrollment_Date', 
-'Closed_For_Enrollment_Date']
+'Closed_For_Enrollment_Date',
+'School_Type',
+'ADA_Accessible',
+'Location']
 
-df = df.drop(lst, axis = 1)
+df = df.drop(lst, axis = 1, errors = "ignore")
 
 df = df[df['Primary_Category']=='HS'].reset_index().drop(['index'], axis = 1)
 
@@ -152,3 +155,32 @@ for i in range(n_clusters):
     print('\n')
     
     cluster_means.append(df[df['Cluster Position']==i].mean())
+    
+
+df['Low Income Count'] = np.multiply(df['Student_Count_Total'].values,df['Student_Count_Low_Income'].values).astype(int)
+df['High Income Count'] = df['Student_Count_Total'] - df['Low Income Count']
+
+low_income_probabilities = []
+high_income_probabilities = []
+
+for i in range(n_clusters):
+    
+    low_income_probabilities.append(sum(df[df['Cluster Position'] == i]['Low Income Count']))
+    high_income_probabilities.append(sum(df[df['Cluster Position'] == i]['High Income Count']))
+
+total_low_income = sum(low_income_probabilities)
+total_high_income = sum(high_income_probabilities)
+
+print("Total Amount of Low Income Students", total_low_income)
+print("Total Amount of Non-Low Income Students", total_high_income)
+
+for i in range(n_clusters):
+    
+    low_income_probabilities[i] = low_income_probabilities[i]/total_low_income
+    print("\nProbability for Low Income Student to be in Cluster", i+1)
+    print(low_income_probabilities[i])
+    
+    high_income_probabilities[i] = high_income_probabilities[i]/total_high_income
+    print("Probability for High Income Student to be in Cluster", i+1)
+    print(high_income_probabilities[i])
+    
