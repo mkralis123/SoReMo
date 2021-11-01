@@ -3,36 +3,93 @@ import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
-n_clusters = 5
+n_clusters = 6
 
 folder = "ISBE_ReportCards/"
 
 
-years = [2019,2020]
+years = [2015,2016,2017,2018,2019,2020]
 clusters_over_time = []
+
+field_names = ['School Name',
+               '% Student Enrollment - White',
+               '% Student Enrollment - Black or African American',
+               '% Student Enrollment - Hispanic or Latino',
+               '% Student Enrollment - Asian',
+               '% Student Enrollment - Low Income',
+               'Student Attendance Rate',
+               'High School Dropout Rate - Total',
+               'High School 4-Year Graduation Rate - Total',
+               '% Graduates enrolled in a Postsecondary Institution within 12 months',
+               '# Student Enrollment']
+
+fields = field_names[0:-1]
+
 
 for year in years:
     
-    df = pd.read_csv(folder + "ISBE_" + str(year) + ".csv", sep = ",", low_memory = False)
     
-    df = df.dropna(subset = ['School Name'])
-    df = df[df['School Type']=='HIGH SCHOOL']
-    df = df[df['District'] == 'City of Chicago SD 299']
+    if year > 2017:
+        
+        df = pd.read_csv(folder + "ISBE_" + str(year) + ".csv", sep = ",", low_memory = False)
+        
+        df = df[df['School Type']=='HIGH SCHOOL']
+        df = df[df['District'] == 'City of Chicago SD 299']
+        df = df.filter(field_names)
+        
+        
+        demographic_df = df.filter(field_names[0:-1])
     
+    else:
+        
+        if year == 2017:
+            
+            num_fields = [3,13,14,15,16,53,69,137,241,881,20]
+            
+        elif year == 2016:
+            
+            num_fields = [3,13,14,15,16,53,69,137,141,837,20]
+            
+        elif year == 2015:
+            
+            num_fields = [3,13,14,15,16,53,69,137,141,741,20]
+            
+        
+        df = pd.read_csv(folder + "ISBE_" + str(year) + ".csv", sep = ",",header = None ,low_memory = False)
+        
+        df = df[df[11] == 'HIGH SCHOOL']
+        df = df[df[4] == 'City of Chicago SD 299           ']
+        
+        df = df.filter(num_fields)
+        
+        for i in range(5):
+            
+            j = i+6
+            temp = list(df[num_fields[j]])
+            
+            for k in range(len(temp)):
+                
+                try:
+                    if j == 10:
+                        if "," in temp[k]:
+                            temp[k] = int(temp[k].split(",")[0])*1000 + int(temp[k].split(",")[1])   
+                        else:
+                            temp[k] = int(temp[k])
+                    else:
+                        temp[k] = float(temp[k])
+                    
+                except:
+                    temp[k] = 0
+            
+            df[num_fields[j]] = temp
     
-    demographic_df = df.filter(['School Name',
-                                '% Student Enrollment - White',
-                                '% Student Enrollment - Black or African American',
-                                '% Student Enrollment - Hispanic or Latino',
-                                '% Student Enrollment - Asian',
-                                '% Student Enrollment - Low Income',
-                                'Student Attendance Rate',
-                                'High School Dropout Rate - Total',
-                                'High School 4-Year Graduation Rate - Total',
-                                '% Graduates enrolled in a Postsecondary Institution within 12 months',
-                                'Chronic Absenteeism'])
+        df.columns = field_names
+        
+        demographic_df = df.filter(field_names[0:-1])
+        
+        
     
-    X = np.delete(demographic_df.values, [0,6,7,8,9,10], axis = 1)
+    X = np.delete(demographic_df.values, [0,6,7,8,9], axis = 1)
     X = X.astype(float)
     X[np.isnan(X)] = 0
     
@@ -43,6 +100,8 @@ for year in years:
     df['Cluster Position'] = labels
     
     
+    demographic_df['# Student Enrollment'] = df['# Student Enrollment']
+    demographic_df = demographic_df.fillna(0)
     cluster_means = []
     
     for i in range(n_clusters):
@@ -50,8 +109,21 @@ for year in years:
         # print('AVERAGES OF CLUSTER: ' + str(i+1) )
         # print(round(demographic_df[demographic_df['Cluster Position']==i].mean(),2))
         # print('\n')
+    
+        current_df = demographic_df[demographic_df['Cluster Position']==i]
         
-        cluster_means.append(demographic_df[demographic_df['Cluster Position']==i].mean())
+        means = []
+        
+        for j in range(len(fields)-1):
+            
+            total_in_cluster = np.dot(current_df[fields[j+1]],current_df['# Student Enrollment'])
+            
+            means.append(total_in_cluster/sum(current_df['# Student Enrollment']))
+            
+        means.append(i)
+        cluster_df = pd.Series(data = means, index = fields[1:]+['Cluster Position'], dtype = float)
+        
+        cluster_means.append(cluster_df)
         
         
     clusters_over_time.append(cluster_means)
@@ -59,11 +131,42 @@ for year in years:
 
 ##############GALE SHAPLEY ALGORITHM##############
 
+def order_min(array):
+    
+    index = dict(zip(array,np.arange(0,len(array))))
+    rev_index = dict(zip(np.arange(0,len(array)),array))
+    array.sort()
+    
+    order_index = []
+    new_array = list(rev_index.values())
+    
+    for i in range(len(array)):
+        
+        order_index.append(index[array[i]])
+    
+    return order_index,new_array
 
-def swapPositions(lst, pos1, pos2):
+
+def swapPositions(matchings, lst):
      
-    lst[pos1], lst[pos2] = lst[pos2], lst[pos1]
-    return lst
+    newlst= []
+    
+    for i in range(len(matchings)):
+        
+        if matchings[i][0] == i:
+            
+            newlst.append(matchings[i][1])
+        
+        else:
+            for j in range(n_clusters):
+                if matchings[j][0] == i:
+                    newlst.append(matchings[j][1])
+    
+    for i in range(len(newlst)):
+        
+        newlst[i] = lst[newlst[i]]
+        
+    return newlst
 
 def cluster_pref(cluster1, cluster2):
     
@@ -103,9 +206,7 @@ for i in range(len(clusters_over_time)-1):
     prev_clusters = clusters_over_time[i]
     post_clusters = clusters_over_time[i+1]
     
-    matched = False    
-    
-    while len(matchings) <5:
+    while len(matchings) <n_clusters:
         
         for j in range(n_clusters):
             
@@ -119,52 +220,52 @@ for i in range(len(clusters_over_time)-1):
                 
                 preferences.append(cluster_pref(cluster1, cluster2))
                 
+            order_pref, preferences = order_min(preferences)
+            pref_index = order_pref[0]
             
-            pref = min(preferences)
-            pref_index = preferences.index(pref)
-            
-            if check_matchings(pref_index, matchings)[0]:
+            if check_matchings(pref_index,matchings)[0]:
                 
-                alt_matching = check_matchings(pref_index, matchings)[1]
-                
-                alt_cluster = prev_clusters[alt_matching]
-                alt_pref = cluster_pref(alt_cluster,post_clusters[pref_index])
-                
-                if pref<alt_pref:
+                for l in range(len(order_pref)):
                     
-                    matchings.pop(alt_matching)
-                    matchings.append((j,pref_index))
+                    pref_index = order_pref[l]
+                    pref = preferences[order_pref[l]]
                     
-                else:
-                    continue
-                
+                    if check_matchings(pref_index, matchings)[0]:
+                        
+                        alt_index = check_matchings(pref_index, matchings)[1]
+                        alt_matching = matchings[alt_index]
+                        
+                        if alt_matching[0] == j:
+                            
+                            break
+                        
+                        else:
+                        
+                            alt_cluster = prev_clusters[alt_matching[0]]
+                            alt_pref = cluster_pref(alt_cluster,post_clusters[pref_index])
+                            
+                            if pref<alt_pref:
+                                
+                                matchings.pop(alt_index)
+                                matchings.append((j,pref_index))
+                                break
+                                
+                            else:
+                                print("YEAR: " + str(year) + ". Does not prefer new match for", j)
+                                continue
+                        
+                    else:
+                        
+                        matchings.append((j,pref_index))
             else:
                 
                 matchings.append((j,pref_index))
                 
-    swapped = []
-    for matching in matchings:
-        
-        if matching[0]==matching[1]:
-            swapped.append(matching[0])
-            continue
-        
-        else:
-            
-            left = matching[0]
-            right = matching[1]
-            
-            if left in swapped:
-                continue
-            
-            else:
-                clusters_over_time[i+1] = swapPositions(clusters_over_time[i+1], left, right)
-                swapped.append(left)
-                swapped.append(right)
+    clusters_over_time[i+1] = swapPositions(matchings, clusters_over_time[i+1])
         
         
 #################FOR PLOTS##################
-cluster_indexnum = 3
+cluster_indexnum = 0
 feature = '% Student Enrollment - Low Income'
 
 data_for_plot = []
@@ -177,13 +278,21 @@ fig, ax = plt.subplots()
 ax.plot(years, data_for_plot)
 ax.ticklabel_format(useOffset=False)
 plt.title(feature + " Over Time in Cluster " + str(cluster_indexnum))
+plt.grid()
 plt.xlabel("Year")
 plt.ylabel("Percentage")
 plt.show()
 
-print('AVERAGES OF CLUSTER: ' + str(cluster_indexnum) )
-print(clusters_over_time[0][cluster_indexnum])
-print('\n')
+
+print('AVERAGES OF CLUSTER: ' + str(cluster_indexnum))
+print("\n")
+for i in range(len(years)):
+    
+    print("YEAR: ", years[i])
+    print(clusters_over_time[i][cluster_indexnum])
+    print('\n')
+    
+    
 
 
 # df = df.filter(['School Name',
