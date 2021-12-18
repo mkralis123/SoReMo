@@ -134,7 +134,6 @@ def mapClusters(n_clusters):
     gdf.plot(figsize=(10,10),ax=chicri_map, column = 'Cluster Position', 
              categorical = True,legend = True,color = gdf['Colors'], markersize=100, alpha=1)
     chicri_map.set_title("Clusters over Map of Chicago c. 2020")
-    chicri_map.set_axis_off()
     
 
 

@@ -1,90 +1,90 @@
 ,School Name,% Student Enrollment - White,% Student Enrollment - Black or African American,% Student Enrollment - Hispanic or Latino,% Student Enrollment - Asian,% Student Enrollment - Low Income,Student Attendance Rate,High School Dropout Rate - Total,High School 4-Year Graduation Rate - Total,% Graduates enrolled in a Postsecondary Institution within 12 months,Cluster Position,# Student Enrollment
-1430,Amundsen High School,21.2,10.1,55.4,9.6,69.2,93.7,2.2,87.2,75.6,2,1382
-1431,Bogan High School,0.5,63.9,35.0,0.0,88.4,88.9,12.7,54.5,44.0,1,734
-1432,Carver Military Academy HS,1.3,35.5,63.0,0.0,90.4,94.6,1.3,93.8,65.5,0,479
-1433,Farragut Career Academy HS,1.8,11.3,87.0,0.0,99.5,87.3,10.2,61.5,47.2,0,560
-1434,Fenger Academy High School,0.0,97.7,1.1,0.0,95.4,87.3,9.1,56.3,30.6,1,261
-1435,Foreman High School,4.0,18.2,76.7,0.4,93.0,85.9,7.0,65.7,49.7,0,704
-1436,Back of The Yards IB HS,1.0,3.0,92.5,2.8,93.5,95.0,0.7,98.5,79.4,0,1069
-1437,Gage Park High School,0.3,32.8,66.3,0.0,98.4,86.4,12.4,40.0,31.4,0,320
-1438,Harlan Community Academy HS,0.0,98.0,1.7,0.0,96.0,88.2,10.0,59.7,39.6,1,300
-1439,Harper High School,0.0,95.8,4.2,0.0,93.8,93.5,2.1,75.8,28.9,1,48
-1440,Hirsch Metropolitan High School,0.0,96.8,1.1,0.0,94.7,83.2,11.4,35.0,17.1,1,95
-1441,Hubbard High School,2.0,6.0,91.3,0.1,95.3,91.9,4.9,76.8,63.7,0,1626
-1442,Hyde Park Academy High School,0.0,99.0,0.6,0.0,99.0,90.4,6.9,73.0,51.0,1,725
-1443,Thomas Kelly College Preparatory,2.0,3.8,79.7,13.5,93.6,92.7,6.2,73.5,61.3,0,1775
-1444,Kelvyn Park High School,1.7,7.3,89.8,0.0,97.3,88.6,6.5,64.1,35.3,0,410
-1445,Kennedy High School,18.9,2.1,76.5,0.8,69.5,92.8,5.2,78.6,67.7,0,1544
-1446,Kenwood Academy High School,4.6,85.8,4.9,2.3,57.7,94.6,2.1,95.1,68.6,1,2029
-1447,Lake View High School,11.7,10.0,71.1,3.2,76.6,91.0,3.6,89.1,72.4,0,1295
-1448,Lane Technical High School,39.3,7.5,38.7,10.3,40.7,96.2,0.7,97.7,91.9,2,4500
-1449,Marshall Metropolitan High School,0.0,98.0,2.0,0.0,99.6,84.1,13.2,50.4,27.0,1,247
-1450,Mather High School,15.3,14.0,42.0,26.0,86.4,92.4,5.0,76.7,68.2,2,1525
-1451,Morgan Park High School,0.4,97.4,1.5,0.0,84.0,90.2,4.5,83.7,69.5,1,1123
-1452,Phillips Academy High School,0.2,97.2,1.5,0.0,96.2,86.4,9.0,63.6,51.8,1,599
-1453,Roosevelt High School,5.9,11.6,72.8,7.6,94.0,92.5,6.3,73.9,59.0,0,976
-1454,Schurz High School,5.5,8.8,82.0,1.8,89.9,89.8,5.6,74.7,56.8,0,1533
-1455,Senn High School,13.1,24.1,42.1,17.0,77.0,93.6,3.3,80.5,76.1,2,1551
-1456,King College Prep High School,0.2,95.4,2.7,0.4,83.0,94.7,2.7,97.3,88.0,1,483
-1457,Steinmetz College Prep HS,6.7,16.7,71.9,2.6,87.4,89.8,6.1,68.0,61.0,0,1218
-1458,Sullivan High School,7.6,35.7,36.0,14.5,92.7,89.6,7.4,74.4,50.8,2,641
-1459,Taft High School,45.6,2.5,40.5,7.8,51.7,93.7,3.6,82.6,74.4,2,3655
-1460,Tilden Career Communty Academy HS,10.8,42.3,44.3,2.6,95.4,85.7,13.6,42.2,32.6,2,194
-1461,Von Steuben Metro Science HS,17.4,10.1,54.8,15.0,67.5,95.3,1.7,99.5,74.5,2,1715
-1462,Lincoln Park High School,30.4,20.9,32.8,11.5,47.5,94.0,2.4,88.8,85.4,2,2192
-1463,Washington G High School,4.6,4.7,88.9,0.2,85.7,91.7,4.0,75.9,57.4,0,1445
-1464,Wells Community Academy HS,4.3,48.8,45.0,0.8,91.6,89.4,8.0,74.7,52.5,2,369
-1465,Crane Medical Prep HS,1.0,79.3,18.1,0.7,85.8,91.8,2.2,91.2,79.7,1,415
-1466,Disney II Magnet HS,21.0,20.1,52.0,3.5,55.4,93.5,1.3,96.2,79.1,2,773
-1496,Chicago Vocational Career Acad HS,0.3,97.0,2.1,0.1,96.6,89.1,8.6,65.8,34.0,1,760
-1498,Dunbar Vocational Career Acad HS,0.3,95.1,4.1,0.0,98.8,88.5,4.6,89.2,57.7,1,344
-1499,Jones College Prep High School,36.9,11.7,28.2,14.0,35.1,95.1,1.5,97.1,86.6,2,1968
-1500,Prosser Career Academy HS,1.8,19.8,77.3,0.4,92.1,91.1,1.3,97.2,77.5,0,1235
-1501,Richards Career Academy HS,0.5,49.1,49.5,0.0,99.1,87.4,9.1,51.4,29.0,0,222
-1502,Simeon Career Academy High School,0.0,98.4,1.1,0.0,90.7,90.5,3.1,97.1,62.9,1,1336
-1504,Corliss High School,0.4,96.0,2.5,0.0,94.6,89.5,7.7,69.5,40.5,1,278
-1505,Clemente Community Academy HS,2.1,27.6,68.5,0.6,93.3,88.4,4.2,78.0,44.6,0,667
-1513,Manley Career Academy High School,1.3,91.1,7.6,0.0,93.7,82.5,15.0,26.0,28.6,1,79
-1514,Curie Metropolitan High School,1.7,12.5,83.2,2.0,89.8,91.3,5.3,76.5,69.8,0,2903
-1528,Julian High School,0.0,97.9,1.8,0.0,93.2,88.3,5.7,85.2,57.6,1,384
-1529,Young Magnet High School,27.5,19.3,28.3,18.9,35.9,96.8,1.1,98.1,89.7,2,2198
-1530,Juarez Community Academy HS,1.0,2.7,94.4,0.6,93.4,88.7,4.5,85.4,58.0,0,1734
-1531,Chicago HS for Agricult Sciences,32.0,46.3,18.8,0.2,43.6,95.7,1.1,96.0,78.6,2,810
-1532,Hancock College Preparatory HS,3.4,1.8,93.2,0.9,79.7,95.7,1.6,97.8,70.8,0,1016
-1533,Brooks College Prep Academy HS,0.7,79.4,18.8,0.0,69.7,93.8,3.0,93.9,81.5,1,1004
-1534,Northside College Preparatory Hs,31.6,6.7,29.6,19.9,42.8,96.8,0.9,98.5,92.8,2,1078
-1535,Chicago Military Academy HS,1.3,63.5,33.6,0.3,87.0,93.8,1.3,96.4,65.8,1,307
-1536,Payton College Preparatory HS,43.9,10.4,21.8,18.6,29.3,95.8,0.6,98.6,93.3,2,1220
-1538,Phoenix Military Academy HS,1.6,13.8,79.9,3.2,90.1,97.2,0.2,100.0,62.6,0,558
-1539,Spry Community Links High School,1.0,0.0,97.9,0.0,95.9,85.6,22.0,19.4,58.8,0,97
-1541,Chicago Academy High School,17.6,8.1,67.9,4.6,77.6,95.9,2.3,95.6,77.6,0,567
-1542,Bowen High School,0.4,82.5,15.4,0.0,93.8,88.6,10.9,56.1,33.3,1,240
-1543,North-Grand High School,0.6,17.3,81.1,0.3,93.5,92.7,2.4,83.6,63.4,0,1011
-1544,Raby High School,0.4,90.7,8.2,0.4,95.1,90.5,8.6,89.5,49.3,1,268
-1545,Clark Acad Prep Magnet High Schl,0.0,96.8,3.0,0.0,96.4,91.8,2.3,94.7,45.7,1,535
-1546,Rickover Naval Academy High Schl,9.8,5.6,77.8,5.8,81.3,94.4,1.3,95.6,69.8,0,396
-1547,Uplift Community High School,4.1,67.8,18.2,8.3,92.6,91.1,5.7,90.3,71.4,1,121
-1549,World Language High School,0.6,4.2,94.2,0.0,94.5,93.6,3.0,95.8,75.9,0,361
-1550,Douglass Academy High School,0.0,93.0,7.0,0.0,98.2,86.9,4.8,70.6,20.0,1,57
-1551,Devry Advantage Academy High Schl,9.2,33.1,52.8,4.2,66.2,96.3,0.7,98.5,75.3,2,142
-1552,Lindblom Math & Science Acad HS,3.2,69.5,25.8,0.8,62.5,95.3,2.0,98.9,89.4,1,1357
-1553,Bronzeville Scholastic HS,0.0,96.6,2.6,0.9,96.6,89.7,3.8,87.1,67.5,1,117
-1554,School of Social Justice HS,0.6,12.0,87.1,0.0,95.9,91.3,4.2,78.9,47.7,0,317
-1555,Multicultural Acad of Scholarshp HS,0.9,18.2,80.8,0.0,96.7,88.8,12.1,62.1,40.6,0,214
-1556,Infinity Math  Science & Tech HS,0.0,1.3,98.4,0.3,95.8,93.7,2.9,81.9,67.0,0,383
-1558,Collins Academy High School,0.0,96.5,3.5,0.0,97.8,89.9,10.5,90.2,71.9,1,227
-1559,Austin College and Career Academy High School,0.8,96.6,2.1,0.0,95.4,82.6,7.1,54.3,32.5,1,238
-1560,Orr Academy High School,0.0,90.0,10.0,0.0,96.5,84.2,11.7,40.9,25.7,1,230
-1561,Air Force Acad High School,6.2,45.9,45.4,0.5,83.0,94.1,2.0,92.3,61.7,2,194
-1562,Alcott College Prep,10.3,17.9,65.8,2.8,77.1,94.4,1.6,96.0,77.2,0,319
-1564,Chicago Technology Academy HS,1.9,78.5,18.9,0.0,91.7,93.7,1.9,100.0,62.7,1,312
-1565,Chicago HS for the Arts,18.8,32.3,39.1,1.5,46.4,96.5,2.0,95.2,79.7,2,617
-1566,Ogden Int High School,11.8,43.7,38.4,2.8,66.9,93.4,1.8,96.9,84.0,2,638
-1567,Williams Medical Prep High Sch,0.0,98.4,0.8,0.0,96.8,90.3,6.1,96.6,82.5,1,126
-1568,Westinghouse High School,1.5,48.6,43.1,5.7,78.8,94.5,1.3,96.3,88.8,2,1238
-1569,Solorio Academy High School,0.7,3.7,94.9,0.0,92.9,95.3,3.7,85.1,63.8,0,1219
-1571,South Shore Intl Col Prep HS,0.0,96.8,2.2,0.2,82.6,93.1,1.8,97.1,83.5,1,586
-1572,Goode STEM Academy HS,0.4,41.7,56.6,0.1,87.4,92.4,1.3,99.0,67.5,0,924
-1573,Chicago Excel Academy HS,0.7,98.6,0.3,0.0,97.3,86.7,34.9,31.4,23.9,1,295
-1574,Walter Henri Dyett High School for the Arts,0.7,96.3,2.4,0.0,87.6,92.9,2.8,90.4,0.0,1,614
-1575,Englewood STEM High School,0.7,93.6,5.4,0.0,98.8,90.2,0.7,0.0,0.0,1,409
+1430,Amundsen High School,21.2,10.1,55.4,9.6,69.2,93.7,2.2,87.2,75.6,1,1382
+1431,Bogan High School,0.5,63.9,35.0,0.0,88.4,88.9,12.7,54.5,44.0,0,734
+1432,Carver Military Academy HS,1.3,35.5,63.0,0.0,90.4,94.6,1.3,93.8,65.5,2,479
+1433,Farragut Career Academy HS,1.8,11.3,87.0,0.0,99.5,87.3,10.2,61.5,47.2,2,560
+1434,Fenger Academy High School,0.0,97.7,1.1,0.0,95.4,87.3,9.1,56.3,30.6,0,261
+1435,Foreman High School,4.0,18.2,76.7,0.4,93.0,85.9,7.0,65.7,49.7,2,704
+1436,Back of The Yards IB HS,1.0,3.0,92.5,2.8,93.5,95.0,0.7,98.5,79.4,2,1069
+1437,Gage Park High School,0.3,32.8,66.3,0.0,98.4,86.4,12.4,40.0,31.4,2,320
+1438,Harlan Community Academy HS,0.0,98.0,1.7,0.0,96.0,88.2,10.0,59.7,39.6,0,300
+1439,Harper High School,0.0,95.8,4.2,0.0,93.8,93.5,2.1,75.8,28.9,0,48
+1440,Hirsch Metropolitan High School,0.0,96.8,1.1,0.0,94.7,83.2,11.4,35.0,17.1,0,95
+1441,Hubbard High School,2.0,6.0,91.3,0.1,95.3,91.9,4.9,76.8,63.7,2,1626
+1442,Hyde Park Academy High School,0.0,99.0,0.6,0.0,99.0,90.4,6.9,73.0,51.0,0,725
+1443,Thomas Kelly College Preparatory,2.0,3.8,79.7,13.5,93.6,92.7,6.2,73.5,61.3,2,1775
+1444,Kelvyn Park High School,1.7,7.3,89.8,0.0,97.3,88.6,6.5,64.1,35.3,2,410
+1445,Kennedy High School,18.9,2.1,76.5,0.8,69.5,92.8,5.2,78.6,67.7,2,1544
+1446,Kenwood Academy High School,4.6,85.8,4.9,2.3,57.7,94.6,2.1,95.1,68.6,0,2029
+1447,Lake View High School,11.7,10.0,71.1,3.2,76.6,91.0,3.6,89.1,72.4,2,1295
+1448,Lane Technical High School,39.3,7.5,38.7,10.3,40.7,96.2,0.7,97.7,91.9,1,4500
+1449,Marshall Metropolitan High School,0.0,98.0,2.0,0.0,99.6,84.1,13.2,50.4,27.0,0,247
+1450,Mather High School,15.3,14.0,42.0,26.0,86.4,92.4,5.0,76.7,68.2,1,1525
+1451,Morgan Park High School,0.4,97.4,1.5,0.0,84.0,90.2,4.5,83.7,69.5,0,1123
+1452,Phillips Academy High School,0.2,97.2,1.5,0.0,96.2,86.4,9.0,63.6,51.8,0,599
+1453,Roosevelt High School,5.9,11.6,72.8,7.6,94.0,92.5,6.3,73.9,59.0,2,976
+1454,Schurz High School,5.5,8.8,82.0,1.8,89.9,89.8,5.6,74.7,56.8,2,1533
+1455,Senn High School,13.1,24.1,42.1,17.0,77.0,93.6,3.3,80.5,76.1,1,1551
+1456,King College Prep High School,0.2,95.4,2.7,0.4,83.0,94.7,2.7,97.3,88.0,0,483
+1457,Steinmetz College Prep HS,6.7,16.7,71.9,2.6,87.4,89.8,6.1,68.0,61.0,2,1218
+1458,Sullivan High School,7.6,35.7,36.0,14.5,92.7,89.6,7.4,74.4,50.8,1,641
+1459,Taft High School,45.6,2.5,40.5,7.8,51.7,93.7,3.6,82.6,74.4,1,3655
+1460,Tilden Career Communty Academy HS,10.8,42.3,44.3,2.6,95.4,85.7,13.6,42.2,32.6,1,194
+1461,Von Steuben Metro Science HS,17.4,10.1,54.8,15.0,67.5,95.3,1.7,99.5,74.5,1,1715
+1462,Lincoln Park High School,30.4,20.9,32.8,11.5,47.5,94.0,2.4,88.8,85.4,1,2192
+1463,Washington G High School,4.6,4.7,88.9,0.2,85.7,91.7,4.0,75.9,57.4,2,1445
+1464,Wells Community Academy HS,4.3,48.8,45.0,0.8,91.6,89.4,8.0,74.7,52.5,1,369
+1465,Crane Medical Prep HS,1.0,79.3,18.1,0.7,85.8,91.8,2.2,91.2,79.7,0,415
+1466,Disney II Magnet HS,21.0,20.1,52.0,3.5,55.4,93.5,1.3,96.2,79.1,1,773
+1496,Chicago Vocational Career Acad HS,0.3,97.0,2.1,0.1,96.6,89.1,8.6,65.8,34.0,0,760
+1498,Dunbar Vocational Career Acad HS,0.3,95.1,4.1,0.0,98.8,88.5,4.6,89.2,57.7,0,344
+1499,Jones College Prep High School,36.9,11.7,28.2,14.0,35.1,95.1,1.5,97.1,86.6,1,1968
+1500,Prosser Career Academy HS,1.8,19.8,77.3,0.4,92.1,91.1,1.3,97.2,77.5,2,1235
+1501,Richards Career Academy HS,0.5,49.1,49.5,0.0,99.1,87.4,9.1,51.4,29.0,2,222
+1502,Simeon Career Academy High School,0.0,98.4,1.1,0.0,90.7,90.5,3.1,97.1,62.9,0,1336
+1504,Corliss High School,0.4,96.0,2.5,0.0,94.6,89.5,7.7,69.5,40.5,0,278
+1505,Clemente Community Academy HS,2.1,27.6,68.5,0.6,93.3,88.4,4.2,78.0,44.6,2,667
+1513,Manley Career Academy High School,1.3,91.1,7.6,0.0,93.7,82.5,15.0,26.0,28.6,0,79
+1514,Curie Metropolitan High School,1.7,12.5,83.2,2.0,89.8,91.3,5.3,76.5,69.8,2,2903
+1528,Julian High School,0.0,97.9,1.8,0.0,93.2,88.3,5.7,85.2,57.6,0,384
+1529,Young Magnet High School,27.5,19.3,28.3,18.9,35.9,96.8,1.1,98.1,89.7,1,2198
+1530,Juarez Community Academy HS,1.0,2.7,94.4,0.6,93.4,88.7,4.5,85.4,58.0,2,1734
+1531,Chicago HS for Agricult Sciences,32.0,46.3,18.8,0.2,43.6,95.7,1.1,96.0,78.6,1,810
+1532,Hancock College Preparatory HS,3.4,1.8,93.2,0.9,79.7,95.7,1.6,97.8,70.8,2,1016
+1533,Brooks College Prep Academy HS,0.7,79.4,18.8,0.0,69.7,93.8,3.0,93.9,81.5,0,1004
+1534,Northside College Preparatory Hs,31.6,6.7,29.6,19.9,42.8,96.8,0.9,98.5,92.8,1,1078
+1535,Chicago Military Academy HS,1.3,63.5,33.6,0.3,87.0,93.8,1.3,96.4,65.8,0,307
+1536,Payton College Preparatory HS,43.9,10.4,21.8,18.6,29.3,95.8,0.6,98.6,93.3,1,1220
+1538,Phoenix Military Academy HS,1.6,13.8,79.9,3.2,90.1,97.2,0.2,100.0,62.6,2,558
+1539,Spry Community Links High School,1.0,0.0,97.9,0.0,95.9,85.6,22.0,19.4,58.8,2,97
+1541,Chicago Academy High School,17.6,8.1,67.9,4.6,77.6,95.9,2.3,95.6,77.6,2,567
+1542,Bowen High School,0.4,82.5,15.4,0.0,93.8,88.6,10.9,56.1,33.3,0,240
+1543,North-Grand High School,0.6,17.3,81.1,0.3,93.5,92.7,2.4,83.6,63.4,2,1011
+1544,Raby High School,0.4,90.7,8.2,0.4,95.1,90.5,8.6,89.5,49.3,0,268
+1545,Clark Acad Prep Magnet High Schl,0.0,96.8,3.0,0.0,96.4,91.8,2.3,94.7,45.7,0,535
+1546,Rickover Naval Academy High Schl,9.8,5.6,77.8,5.8,81.3,94.4,1.3,95.6,69.8,2,396
+1547,Uplift Community High School,4.1,67.8,18.2,8.3,92.6,91.1,5.7,90.3,71.4,0,121
+1549,World Language High School,0.6,4.2,94.2,0.0,94.5,93.6,3.0,95.8,75.9,2,361
+1550,Douglass Academy High School,0.0,93.0,7.0,0.0,98.2,86.9,4.8,70.6,20.0,0,57
+1551,Devry Advantage Academy High Schl,9.2,33.1,52.8,4.2,66.2,96.3,0.7,98.5,75.3,1,142
+1552,Lindblom Math & Science Acad HS,3.2,69.5,25.8,0.8,62.5,95.3,2.0,98.9,89.4,0,1357
+1553,Bronzeville Scholastic HS,0.0,96.6,2.6,0.9,96.6,89.7,3.8,87.1,67.5,0,117
+1554,School of Social Justice HS,0.6,12.0,87.1,0.0,95.9,91.3,4.2,78.9,47.7,2,317
+1555,Multicultural Acad of Scholarshp HS,0.9,18.2,80.8,0.0,96.7,88.8,12.1,62.1,40.6,2,214
+1556,Infinity Math  Science & Tech HS,0.0,1.3,98.4,0.3,95.8,93.7,2.9,81.9,67.0,2,383
+1558,Collins Academy High School,0.0,96.5,3.5,0.0,97.8,89.9,10.5,90.2,71.9,0,227
+1559,Austin College and Career Academy High School,0.8,96.6,2.1,0.0,95.4,82.6,7.1,54.3,32.5,0,238
+1560,Orr Academy High School,0.0,90.0,10.0,0.0,96.5,84.2,11.7,40.9,25.7,0,230
+1561,Air Force Acad High School,6.2,45.9,45.4,0.5,83.0,94.1,2.0,92.3,61.7,1,194
+1562,Alcott College Prep,10.3,17.9,65.8,2.8,77.1,94.4,1.6,96.0,77.2,2,319
+1564,Chicago Technology Academy HS,1.9,78.5,18.9,0.0,91.7,93.7,1.9,100.0,62.7,0,312
+1565,Chicago HS for the Arts,18.8,32.3,39.1,1.5,46.4,96.5,2.0,95.2,79.7,1,617
+1566,Ogden Int High School,11.8,43.7,38.4,2.8,66.9,93.4,1.8,96.9,84.0,1,638
+1567,Williams Medical Prep High Sch,0.0,98.4,0.8,0.0,96.8,90.3,6.1,96.6,82.5,0,126
+1568,Westinghouse High School,1.5,48.6,43.1,5.7,78.8,94.5,1.3,96.3,88.8,1,1238
+1569,Solorio Academy High School,0.7,3.7,94.9,0.0,92.9,95.3,3.7,85.1,63.8,2,1219
+1571,South Shore Intl Col Prep HS,0.0,96.8,2.2,0.2,82.6,93.1,1.8,97.1,83.5,0,586
+1572,Goode STEM Academy HS,0.4,41.7,56.6,0.1,87.4,92.4,1.3,99.0,67.5,2,924
+1573,Chicago Excel Academy HS,0.7,98.6,0.3,0.0,97.3,86.7,34.9,31.4,23.9,0,295
+1574,Walter Henri Dyett High School for the Arts,0.7,96.3,2.4,0.0,87.6,92.9,2.8,90.4,0.0,0,614
+1575,Englewood STEM High School,0.7,93.6,5.4,0.0,98.8,90.2,0.7,0.0,0.0,0,409

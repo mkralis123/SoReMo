@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
+import math
 
 
 def clusterDemographics(folder, years, field_names, n_clusters):
@@ -102,7 +103,7 @@ def clusterDemographics(folder, years, field_names, n_clusters):
                 
                 total_in_cluster = np.dot(current_df[fields[j+1]],current_df['# Student Enrollment'])
                 
-                means.append(total_in_cluster/sum(current_df['# Student Enrollment']))
+                means.append(round(total_in_cluster/sum(current_df['# Student Enrollment']),2))
                 
             means.append(i)
             cluster_df = pd.Series(data = means, index = fields[1:]+['Cluster Position'], dtype = float)

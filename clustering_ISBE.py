@@ -15,8 +15,9 @@ field_names = ['School Name',
                'High School 4-Year Graduation Rate - Total',
                '% Graduates enrolled in a Postsecondary Institution within 12 months',
                '# Student Enrollment']
-feature_index = 5
+feature_index = 9
 cluster_indexnum = 2
+year_index = -1
 
 
 #############RUN CLUSTER ALGO#####################
@@ -39,8 +40,9 @@ summaryStats(cluster_indexnum, clusters_over_time, years)
 mapClusters(n_clusters)
 
 
-
-
+###################GET CORRELATION MATRIX#########
+correlation_matrix = demographic_dfs[year_index].filter(field_names[1:-1]).corr()
+updated_matrix = correlation_matrix[field_names[1:6]].iloc[5:]
 
 
 

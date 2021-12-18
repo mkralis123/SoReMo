@@ -1,0 +1,254 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{animate}
+\usepackage{float}
+
+
+\title{Education Disparity in Chicago Public High Schools: A Statistical Analysis}
+\author{Michael Kralis}
+\date{December 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Chicago has a history of being one of the most segregated cities in the U.S. which trickles down on the schooling system. This can be a problem when trying to provide education to all who need it. It also can help easily identify when one racial/ethnic group is being undervalued. The Chicago Public School system has a lot on their plate when trying to provide quality education to all walks of life. This begs the question, how well is this goal being achieved? This brings us to the goal of the paper. How can one use methods in statistics to visualize and test for the measure of educational disparity? The main focus will be to provide the methods to measure this disparity. In addition, we will visualize this disparity and provide meaningful interpretations of the statistical methods used. 
+
+\bigskip
+\noindent
+In order to begin our descent into the Chicago public high school system, we must gather data. The data source used for this paper is from the Illinois State Board of Education. Their website contains a report card library dating back to 1996. Since the goal of this paper is to create analysis of Chicago public high schools in the present day, we will only go as far as 2015 for our data. These report cards contain data on every registered public school in Illinois. The pieces of data we are interested in are demographic data and academic data. We will then use these for our analysis going forward.
+
+\section{Clustering schools on Demographics}
+To start, we need to understand what data we are going to use. We will begin by selecting these factors from the report card data: 
+\begin{lstlisting}
+    1. School Name
+    2. % Student Enrollment - White 
+    3. % Student Enrollment - Black or African American
+    4. % Student Enrollment - Hispanic or Latino 
+    5. % Student Enrollment - Asian
+    6. % Student Enrollment - Low Income 
+    7. Student Attendance Rate
+    8. High School Dropout Rate - Total
+    9. High School 4-Year Graduation Rate - Total 
+    10. % Graduates enrolled in a Postsecondary 
+        Institution within 12 months 
+    11. # Student Enrollment
+\end{lstlisting}
+Then we will reduce our set of schools to high schools in Chicago. Now we create a K-means clustering algorithm to partition our high schools. However we will not be clustering these schools on the basis of anything but demographic indicators of the schools. In particular, we will be clustering schools based on factors 1) through 6). This means that each school in our clustering algorithm can be represented as a point in $\mathbb{R}^6$. Later we will see how these clusters have an affect on academic ``success". In the context of this paper, we define academic success to be the factors 7) through 10) of our data. 
+
+\bigskip
+\noindent
+In the preliminary step of the K-means algorithm we randomly select K points
+$$\{p_1^{(0)}, p_2^{(0)},...,p_K^{(0)}\}$$
+to be the starting means or centroids. Let $S\subset \mathbb{R}^6$ be the set of schools. With these random starting points, we will be able to construct a partition given by
+$$\{S_1^{(0)}, S_2^{(0)},...,S_K^{(0)}\}$$
+where 
+$$\bigcup^K_{i = 1} S_i^{(0)} = S$$
+and 
+$$S_i^{(0)} = \{s\in S : d(s,p_i^{(0)}) < d(s,p_j^{(0)}) \; \forall \; j\neq i\}$$
+where the metric $d:\mathbb{R}^6\times\mathbb{R}^6 \to \mathbb{R}$ is given by euclidean distance. The intuition behind the math here is that we drop $K$ points in space that each have 6 randomly generated proportions for our school demographics. Then we partition schools into $K$ subsets where the $i^{th}$ subset, $S_i^{(0)}$, is the collection of schools that was ``closest" to the $i^{th}$ point, $p_i^{(0)}$. The superscript $^{(0)}$ denotes that this is the preliminary step. Moving forward, we recalculate our $K$ points,
+$$\{p_1^{(1)}, p_2^{(1)},...,p_K^{(1)}\}$$
+where 
+$$p_i^{(1)} = \frac{1}{|S_i^{(0)}|}\sum_{s\in S_i^{(0)}}s$$
+Which means that $i^{th}$ point, $p_i^{(1)}$, is now the mean demographics of the schools from $i^{th}$ subset, $S_i^{(0)}$, from the previous step. Then we create another partition given by
+$$\{S_1^{(1)}, S_2^{(1)},...,S_K^{(1)}\}$$
+using the same strategy as in the preliminary step. This algorithm will repeat in this fashion until the means converge to a point where the clusters don't change on the next iteration. Thus we will have our final clusters given by
+$$\{S_1, S_2,...,S_K\}$$
+Once we have our clusters, we can now label each of the schools with the cluster it belongs in. For each cluster, $S_i$, we can give summary statistics. We present the implementation with $K=3$ in figures 1, 2, and 3.
+
+\bigskip
+\noindent
+We notice from figures 1, 2, and 3 that cluster 0 was predominately black or African American, cluster 1 was predominately Hispanic, and cluster 2 was a mixed demographic cluster with a high amount of non-low-income students. These results, intuitively, give rise to some powerful concerns. The important aspect of the construction of these clusters is that the algorithm only used demographic factors to partition the schools yet was able to spot a group of schools with significantly higher academic ``success" in cluster 2. Now it must be understood that how we are defining academic success is restricted to only 4 pieces of data. In reality, basing an individual student's academic success on these 4 factors would be preposterous. However, making a judgement about an entire school on these factors makes more sense. 
+
+\bigskip
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{statsCluster0.PNG}
+    \caption{Summary Stats of Cluster 0}
+    \label{fig:Cluster 0}
+\end{figure}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{statsCluster1.PNG}
+    \caption{Summary Stats of Cluster 1}
+    \label{fig:Cluster 1}
+\end{figure}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{statsCluster2.PNG}
+    \caption{Summary Stats of Cluster 2}
+    \label{fig:Cluster 2}
+\end{figure}
+
+
+\bigskip
+\noindent
+These clusters allow us to analyze even more about the school system in Chicago. They allow us to prove even more about how the segregation of Chicago has affected the school system. By plotting these clusters, we can create a visual of this effect. 
+\bigskip
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=9cm]{mapClusters.png}
+    \caption{Mapping clusters over Chicago neighborhoods}
+    \label{fig:Chicago Map}
+\end{figure}
+
+\bigskip
+\noindent
+It is clear to see that not only do these clusters separate schools efficiently on the basis of academic success (without even trying to) they also seem to be an efficient tool in splitting up the areas of Chicago. This can be problematic for students of color to receive a quality education.
+
+\section{Trends of clusters over time}
+The natural question to ask is, how do these disparities change over time? Or in the context of our previous work, how do these clusters change over time? The problem in answering such a question is that the K-means algorithm is a random algorithm. This means that if we cluster schools in the years 2019 and 2020, the clusters may look very different. However we can fix this problem by creating a stable matching algorithm. 
+
+\bigskip
+\noindent
+The idea of a matching is a rigorously studied concept in discrete mathematics. However, the concept is rather simple. In the context of our problem, we have a bipartite graph as follows
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{graphicalModel.PNG}
+    \caption{Implementation of stable matching}
+    \label{fig:Bipartite Graph}
+\end{figure}
+
+\bigskip
+\noindent
+The lines across are the edges of the graph and they represent an element of the matching. For example, what these lines represent for this problem is that Cluster 1 is most like Cluster 3 and so on. The problem that arises is that we need to introduce cluster preferences. When introducing preferences into our graphical model, we step into the world of stable matchings. 
+
+\bigskip
+\noindent
+In 1962, David Gale and Lloyd Shapley proved that for any set of preferences on a bipartite graph there exists a stable matching. It is also worth noting that in 1984 Alvin E. Roth observed that the same algorithm had been used for practical purposes in the early 1950s. The algorithm's history dates back to matching medical students to hospitals for their residency. Each hospital and student had a list of preferences so how do we make all parties happy? The algorithm is presented below
+
+\bigskip
+\noindent
+Algorithm
+
+\noindent
+Inputs: List of clusters $A$, list of clusters $B$, set of preferences for each cluster
+Output: Stable Matching
+
+\bigskip
+
+Initialize all $a \in A$ and $b \in B$ to free
+
+while $\exists$ free cluster $a$ who has a cluster $b$ to match to, do
+    
+\indent \indent $b$ := first cluster on $a$'s list to whom $a$ has not yet matched to
+    
+\indent\indent if $\exists$ some pair ($a$', $b$) then
+
+\indent\indent\indent if $b$ prefers $a$ to $a$' then
+
+\indent\indent\indent\indent $a$' becomes free
+
+\indent\indent\indent\indent ($a$, $b$) become matched
+
+\indent\indent\indent end if
+
+\indent\indent else
+
+\indent\indent\indent ($a$, $b$) become matched
+    
+\indent\indent end if
+
+\indent repeat
+
+\bigskip
+\noindent
+First of all, what is a stable matching? In the context of the medical students, say Hospital A wanted medical student B and vice versa. However, in the matching, medical student B was matched to Hospital B and Hospital A was matched with medical student A. This creates an unstable edge and thus the matching would be unstable. A stable matching is a matching where this situation does not occur. It is worth noting that even in a stable matching a hospital or medical student may not be matched with its preferred choice. However, that choice will not prefer it more than what it is already currently matched to.
+
+\bigskip
+\noindent
+Why do we need a stable matching in the first place? The purpose of this paper is to recreate results for any number of clusters. However, if the cluster size goes beyond 4, the matching algorithm can no longer be a greedy one. There will have to be clusters that don't get matched with their number one choice in order for a stable matching to be created. The key in choosing the cluster size of 4 is to avoid this problem. This way, we can explicitly show how these clusters change over time.
+
+\bigskip
+\noindent
+The next question to ask is, why don't we just save the schools clustered in the first year and track them over time? The problem with this approach is that a school's demographic and academic factors may change over time. They may change so much that the schools should be reclassified. By running a clustering algorithm each year and then mapping those clusters back, we can accurately assess the changes over time.
+
+\bigskip
+\noindent
+Now that we established the why, we will get down to the results. One factor we are interested in viewing is the proportion of low income students over time. From figure 6, we can see that the gap between clusters is immediate. Cluster 2 has significantly less low income students as compared to clusters 0 and 1. Not only this but the gap seems to be getting larger each year. Cluster 0 went from 91 to 85 percent low income students and cluster 1 went from 95 to 89 percent low income students while cluster 2 went from 68 to 55 percent low income students. This relative change is 3 times larger than in clusters 0 and 1. What this means is that the K-means algorithm is identifying that the schools with wealthy student bodies are getting wealthier over time.
+
+\bigskip
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=9cm]{lowincomeTrend.png}
+    \caption{Proportion of Low Income students over time}
+    \label{fig:Low Income}
+\end{figure}
+
+
+\noindent
+Now we will turn our attention to the college enrollment rate of each cluster. From figure 7, like in figure 6, the differences are immediate. Cluster 2 has a much higher proportion of students enrolling in college compared to the other clusters. We can also see how the COVID-19 pandemic has affected schools. Over time we have seen more graduates move on to postsecondary institutions but in the 2019-2020 school year this growth comes to a screeching halt. More specifically, we can see the effect that the pandemic has on schools that are predominantly black or African-American students with cluster 0 having the largest drop in postsecondary institution enrollment.
+
+\bigskip
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=11cm]{collegeGradTrend.png}
+    \caption{Proportion of students attending college over time}
+    \label{fig:College Enrollment}
+\end{figure}
+
+\section{Traditional approach}
+In this section we will take a look at these factors from a more straightforward standpoint. What can we see about the correlations between all these factors?
+
+\bigskip
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=11cm]{corrMatrix.png}
+    \caption{Correlation Matrix of Factors}
+    \label{fig:Correlation Matrix}
+\end{figure}
+
+\bigskip
+\noindent
+Now the important part of this matrix to focus on are the correlations between are demographic factors and our academic factors. This data is presented below in figure 9. The first thing to notice is the disadvantage that schools with a large amount of low income students have when it comes to academic factors. Across the board, low income students is the most strongly correlated factor with respect to each academic factors. We can also see the disadvantage to schools that are predominantly black or African American. 
+
+\bigskip
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=11cm]{specificMatrix.png}
+    \caption{Correlations of academic factors against demographic factors}
+    \label{fig:Specific Matrix}
+\end{figure}
+
+\bigskip
+\noindent
+Referring back to figure 8 we notice a shocking discovery. The correlation between the proportion of low income students of a school and the proportion of graduates that enroll in postsecondary institution is about -0.644 while the correlation between the high school graduation rate and proportion of graduates that enroll in postsecondary institution is about 0.771. As an example as to why this is so problematic, let us consider someone trying to guess the academic profile of a school. Perhaps this person was limited to asking questions only about demographics. What these numbers tell us is that asking for the proportion of low income students is almost as good as asking the high school graduation rate when trying to predict the postsecondary institution enrollment! In short this person would most likely say, ``tell us how wealthy the student body is and we will give a good ballpark estimate for its academics factors''.
+
+\section{Potential for further analysis}
+The hidden goal of this project is to recreate new research projects for others in this scope. The proposed choice of analysis is not the only choice. The repository located at https://github.com/mkralis123/SoReMo contains scripts to recreate results. For example, what if the number of clusters chosen was 4 instead of 3? What if we chose to look at attendance rate over time instead? As we see below, figure 10 shows the main file called ``clustering\_ISBE.py''. The file that contains the user-built functions is called ``functions.py''. Below we can see an implementation of the code. Note that there are some dependencies on unique packages in python such as geopandas.
+
+\bigskip
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=11cm]{codeExample.PNG}
+    \caption{Implementation of Python code}
+    \label{fig:Python Code}
+\end{figure}
+
+\section{Conclusions}
+To summarize our journey in uncovering the disparities present in the Chicago public high school system we will start from the beginning. We started this to analyze the disparity for a single school year, 2019-2020. We were able to immediately see differences in academic factors even though the clustering algorithm knew nothing about them. After plotting these clusters over the city of Chicago, we were able to understand the connection between the segregation of Chicago in the school system. Next we decided to observe how these clusters changed in time by making use of a graphical model and matching these clusters over time. Again, we were not only able to see clear differences year to year but we were able to see that these disparities have grown over time. Lastly, we observed the correlation matrix between all these factors and identified key values to illustrate this disparity.
+
+\bigskip
+\noindent
+In conclusion, there is much work to be done when it comes to Chicago public high schools. It is not sure whether or not the school system itself can make up for these inequalities but proof of that was not the goal of this paper. What we have shown is that it exists and it is strong. Low income students and students of color are at disadvantages when it comes to the academic factors selected.
+
+
+
+\end{document}
